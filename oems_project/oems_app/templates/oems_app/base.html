@@ -1,0 +1,26 @@
+<!doctype html>
+{% load tailwind_tags %}
+{% load static %}
+
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% tailwind_css %}
+        {% block title %}{% endblock title %}
+    </head>
+    <body>
+        <div class="p-10 text-center">
+            <a href="{% url 'index' %}"><h1 class="mb-4 text-gray-600 font-bold text-center uppercase">Office Employees Management System</h1></a>
+            <hr class="mb-6">
+            <a href="{% url 'index' %}" class="mx-4 p-2 rounded-lg bg-slate-400 cursor-pointer hover:bg-slate-600 hover:text-white" role="button">Voir tous les employés</a>
+            <a href="/add_emp" class="mx-4 p-2 rounded-lg bg-slate-400 cursor-pointer hover:bg-slate-600 hover:text-white" role="button">Ajouter un employé</a>
+            <a href="/remove_emp" class="mx-4 p-2 rounded-lg bg-slate-400 cursor-pointer hover:bg-slate-600 hover:text-white" role="button">Supprimer un employé</a>
+            <a href="/filter_emp" class="mx-4 p-2 rounded-lg bg-slate-400 cursor-pointer hover:bg-slate-600 hover:text-white" role="button">Filtrer les employés</a>
+            <a href="/update_emp" class="mx-4 p-2 rounded-lg bg-slate-400 cursor-pointer hover:bg-slate-600 hover:text-white" role="button">Mettre à jour les données d'un employé</a>
+        </div>
+        <main>
+        {% block content %} {% endblock content %}
+        </main>
+    </body>
+</html>

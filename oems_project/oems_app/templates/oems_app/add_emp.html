@@ -1,0 +1,49 @@
+{% extends '../oems_app/base.html' %}
+
+{% block title %}
+    <title>Ajouter un employé</title>
+{% endblock title %}
+
+{% block content %}
+    <main>
+    <!-- This is an example component -->
+        <div class="bg-gray-50 p-8 rounded-md w-full">
+            <div class=" flex items-center justify-between pb-6">
+                <div>
+                    <h2 class="text-gray-600 font-semibold">Ajouter un employé</h2>
+                </div>
+            </div>
+            <form action="/add_emp" method="post">
+                {% csrf_token %}
+                <div class="mb-8">
+                    <label for="first_name" class="mr-1">Prénom : </label>
+                    <input type="text" class="mr-6" id="first_name" name="first_name" value="{{ first_name }}" >
+                    <label for="last_name" class="mr-1">Nom : </label>
+                    <input type="text" class="mr-6" id="last_name" name="last_name" value="{{ last_name }}">
+                </div>
+                <hr>
+                <div class="my-8">
+                    <label for="dept" class="mr-1">Département : </label>
+                    <input type="number" class="mr-6" id="dept" name="dept" value="{{ dept }}">
+                    <label for="role" class="mr-1">Poste : </label>
+                    <input type="number" class="mr-6" id="role" name="role" value="{{ role }}">
+                </div>
+                <hr>
+                <div class="my-8">
+                    <label for="salary" class="mr-1">Salaire : </label>
+                    <input type="number" class="mr-6" id="salary" name="salary" value="{{ salary }}">
+                </div>
+                <hr>
+                <div class="my-8">
+                    <label for="phone" class="mr-1">Téléphone : </label>
+                    <input type="text" class="mr-6" id="phone" name="phone" value="{{ phone }}">
+                </div>
+                <div>
+                    <button type="submit"
+                            class="m-8 py-2 px-4 rounded-lg bg-blue-500 cursor-pointer hover:bg-blue-700
+                            hover:text-white">Ajouter</button>
+                </div>
+            </form>
+        </div>
+    </main>
+{% endblock content %}
